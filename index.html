@@ -277,7 +277,7 @@
     #final-wish.show { opacity: 1; transform: translateY(0); }
     .soulful { font-size: 0.9rem; color: #b8a8b0; margin-top: 8px; }
     
-    /* Native HTML5 Audio Layout */
+    /* Native Audio Engine Frame */
     #audio-container {
       margin-top: 24px;
       width: 100%;
@@ -349,8 +349,8 @@
       <h2>That One Time...</h2>
       <div class="polaroid-wrap">
         <div class="polaroid" id="polaroid">
-          <!-- Referenced File Verbatim: WhatsApp Image 2026-07-03 at 4.57.25 PM.jpeg -->
-          <img src="WhatsApp Image 2026-07-03 at 4.57.25 PM.jpeg" alt="WhatsApp Image 2026-07-03 at 4.57.25 PM.jpeg" onerror="this.src='https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=600&q=80'" />
+          <!-- Exact matching reference to your image file asset -->
+          <img src="WhatsApp Image 2026-07-03 at 4.57.25 PM (1).jpeg" alt="Beach Memory" onerror="this.src='https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=600&q=80'" />
           <div class="caption">✨ Our beach memory ✨</div>
         </div>
       </div>
@@ -363,16 +363,15 @@
       <div id="final-wish">Happy Birthday Shweatha! ❤️</div>
       <div class="soulful">— soulful wishes from kanna</div>
       
-      
-<!-- Native HTML5 audio engine triggered by code -->
-<div id="audio-container">
-  <p>🎵 Music Player</p>
-  <audio id="bg-music" controls loop prefetch="auto">
-    <!-- Changed extension to .mp3 for better browser decoding stability -->
-    <source src="WhatsApp Audio 2026-07-03 at 4.51.08 PM (1).mp3" type="audio/mpeg">
-    Your browser does not support the audio element.
-  </audio>
-</div>
+      <!-- Audio Engine configured directly to process your .mp4 track context safely -->
+      <div id="audio-container">
+        <p>🎵 Playing background track...</p>
+        <audio id="bg-music" controls loop>
+          <source src="WhatsApp Audio 2026-07-03 at 4.51.08 PM (1) (2).mp4" type="audio/mp4">
+          Your browser does not support the audio element.
+        </audio>
+      </div>
+
       <button class="btn" id="celebrateBtn" style="margin-top:20px;">Celebrate!</button>
     </div>
   </div>
@@ -420,12 +419,11 @@
 
       nextBtns.forEach(btn => {
         btn.addEventListener('click', () => {
-          // --- AUDIO AUTOPLAY FIX ---
+          // --- FORCED INITIALIZATION TO BYPASS BROWSER AUTOPLAY BLOCK ---
           const music = document.getElementById('bg-music');
           if (music && music.paused) {
-            music.play().catch(err => console.log("Autoplay interaction handled.", err));
+            music.play().catch(err => console.log("Interaction engine initiated.", err));
           }
-          // ---------------------------
 
           const nextStep = btn.getAttribute('data-next');
           document.querySelector('.step-card.active').classList.replace('active', 'hidden');
