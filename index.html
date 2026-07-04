@@ -420,6 +420,13 @@
 
       nextBtns.forEach(btn => {
         btn.addEventListener('click', () => {
+          // --- AUDIO AUTOPLAY FIX ---
+          const music = document.getElementById('bg-music');
+          if (music && music.paused) {
+            music.play().catch(err => console.log("Autoplay interaction handled.", err));
+          }
+          // ---------------------------
+
           const nextStep = btn.getAttribute('data-next');
           document.querySelector('.step-card.active').classList.replace('active', 'hidden');
           const nextCard = document.querySelector(`[data-step="${nextStep}"]`);
